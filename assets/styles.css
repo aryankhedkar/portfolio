@@ -1,0 +1,739 @@
+/* ----------------------------------------------------------------------------
+   1. IMPORT GOOGLE FONTS
+   ----------------------------------------------------------------------------*/
+   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap");
+
+   /* ----------------------------------------------------------------------------
+   2. GLOBAL STYLES
+   ----------------------------------------------------------------------------*/
+   body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  color: white;
+}
+
+/* ----------------------------------------------------------------------------
+   3. EXPERIENCE SECTION
+   ----------------------------------------------------------------------------*/
+/* Slightly elevate the "Snapshot of My Experience" section with a subtle backdrop or background */
+.experience-section {
+  background-color: black; /* Very subtle white overlay */
+  padding: 3rem 1rem; /* Extra padding for breathing room */
+  margin: 2rem 0;     /* Space above and below */
+  border-radius: 8px; /* Soft corners for a modern look */
+}
+
+/* If you’d like a subtle bottom border or divider: 
+.experience-section {
+  border-bottom: 1px solid #333;
+} 
+*/
+
+/* ----------------------------------------------------------------------------
+   4. CARD STYLES
+   ----------------------------------------------------------------------------*/
+/* Add a subtle border or shadow to cards if you want them to stand out */
+.card-item {
+  background-color: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle border */
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(1, 113, 255, 0.5); /* 50% opacity */
+}
+
+
+.card-header {
+  border-bottom: 1px solid rgba(1, 113, 255, 0.5); 
+  font-weight: 600;
+  color: #0171FF; /* Tie in your accent color for the header text */
+}
+.card-body p {
+  margin-bottom: 0; /* Remove default margin to keep it tight */
+}
+
+   
+   /* ----------------------------------------------------------------------------
+      3. FOOTER STYLES
+      ----------------------------------------------------------------------------*/
+   /* Subtle hover for footer links */
+   .footer-link {
+     color: #0171FF;
+     text-decoration: none;
+     transition: color 0.2s ease-in-out;
+   }
+   .footer-link:hover {
+     color: #0171FF;
+     text-decoration: none;
+   }
+   
+   /* Grayish divider line in the footer */
+   hr.bg-secondary {
+     border-color: #333;
+   }
+   
+   /* Profile Picture: Smaller size, circular frame */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image fills the circle */
+  margin: 0 auto;    /* Center it horizontally if needed */
+  display: block;    /* Required for margin: 0 auto to work on an <img> */
+}
+
+.card, .contact-card, .about-card {
+  background-color: transparent !important;
+  border: none;
+  color: white
+}
+
+.backdrop {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+.text-muted {
+  color: #ccc !important; /* or #bbb, for instance */
+}
+
+.vision-text {
+  font-size: 1.5rem; 
+  color: #ccc; 
+  margin-bottom: 1rem;
+}
+
+
+.about-page-content h2 {
+  text-align: center;
+}
+
+.about-page-content {
+  background-color: black;
+  color: white;           /* Light grey text for contrast */
+  padding: 2rem;
+}
+
+.about-page-content p {
+  text-align: justify; /* Justify text for improved readability */
+}
+
+
+.about-hero-section {
+  min-height: 40vh; /* or 50vh, to create a taller hero area */
+  background: url("/assets/images/about_hero_bg.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Tinted overlay if you want it */
+}
+
+.hero-content {
+  z-index: 1; /* Ensures text is on top of overlay */
+  color: #fff; /* White text, if background is dark */
+}
+
+
+/*******************************************************
+ 1. RESET & BASE STYLES
+********************************************************/
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #000;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0171FF;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+ul {
+  list-style: none;
+}
+
+:root {
+  --accent: #0171FF; /* Primary accent color */
+  --background-dark: #000;  /* Primary background color */
+  --background-card: #111;  /* Card backgrounds */
+  --text-light: #fff;       /* Light text color */
+  --text-dim: #bbb;         /* Dimm text color */
+  --transition-speed: 0.5s; /* Global transition speed */
+}
+
+/*******************************************************
+ 2. HEADER & NAV
+********************************************************/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #222;
+  z-index: 999;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Desktop Nav */
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav li a {
+  font-size: 1rem;
+  position: relative;
+}
+
+nav li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  height: 2px;
+  background-color: var(--accent);
+  transition: width var(--transition-speed) ease;
+}
+
+nav li a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  width: 24px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* Mobile Menu */
+.mobile-nav {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.95);
+  border-left: 1px solid #222;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 998;
+}
+.mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.5rem;
+}
+.mobile-nav li a {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/*******************************************************
+ 3. FADE-IN ANIMATION UTILITY
+********************************************************/
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+.fade-in:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.fade-in:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.fade-in:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*******************************************************
+ 4. HERO SECTION
+********************************************************/
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  /* Subtle background gradient or image placeholder */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.9)
+  ), 
+  url("https://via.placeholder.com/2000x1200?text=Your+Background+Image") center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 700px;
+  padding: 0 1.5rem;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.btn-hero {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--text-light);
+  padding: 0.9rem 2rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background-color var(--transition-speed) ease;
+}
+.btn-hero:hover {
+  background-color: #0171FF;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ccc;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: opacity var(--transition-speed) ease;
+}
+.scroll-down:hover {
+  opacity: 0.8;
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/*******************************************************
+ 5. SECTION BASE STYLES
+********************************************************/
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+section h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+section p.section-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0.5rem auto 2rem auto;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/*******************************************************
+ 6. ABOUT SECTION
+********************************************************/
+.About-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+/*******************************************************
+ 7. VALUE SECTION
+********************************************************/
+.Value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.Value-card {
+  background-color: var(--background-card);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  text-align: left;
+  border: 1px solid #222;
+}
+
+.Value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.Value-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.Value-card p {
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/*******************************************************
+ 8. TESTIMONIALS SECTION
+********************************************************/
+.testimonials {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonial-slide {
+  display: none;
+  padding: 2rem;
+  border-radius: 8px;
+  background: #111;
+  margin-bottom: 2rem;
+  min-height: 150px;
+}
+
+.testimonial-slide.active {
+  display: block;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #ccc;
+  font-style: italic;
+}
+
+.testimonial-author {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.testimonial-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.testimonial-nav button {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+  font-size: 0.9rem;
+}
+.testimonial-nav button:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+/*******************************************************
+ 9. PRICING SECTION
+********************************************************/
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.pricing-plan {
+  background-color: var(--background-card);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  border: 1px solid #222;
+}
+
+.pricing-plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-plan h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.pricing-plan ul {
+  list-style: none;
+  margin: 1rem auto;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+  color: #ddd;
+}
+
+.pricing-plan ul li {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.pricing-plan a {
+  display: inline-block;
+  margin-top: 1.2rem;
+  background-color: var(--accent);
+  color: var(--text-light);
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.pricing-plan a:hover {
+  background-color: #0171FF;
+}
+
+/*******************************************************
+ 10. CONTACT SECTION
+********************************************************/
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto 0 auto;
+  text-align: left;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form label {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 0.3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color var(--transition-speed) ease;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.contact-form button:hover {
+  background-color: #0171FF;
+}
+
+/*******************************************************
+ 11. FOOTER
+********************************************************/
+footer {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: var(--background-dark);
+  border-top: 1px solid #222;
+  margin-top: 4rem;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.social-links {
+  margin: 0.5rem 0;
+}
+
+.social-links a {
+  color: #666;
+  margin: 0 0.6rem;
+  font-size: 1.2rem;
+  transition: color var(--transition-speed) ease;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+}
+
+/*******************************************************
+ 12. BACK TO TOP BUTTON
+********************************************************/
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--accent);
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+  z-index: 999;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*******************************************************
+ 13. MEDIA QUERIES
+********************************************************/
+@media (max-width: 500px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
