@@ -1,7 +1,7 @@
 # Aryan Khedkar's Portfolio Website
 
 ## Description
-A professional portfolio website built with Dash to showcase my skills, projects, certifications, and writing. This site highlights my expertise in data analytics, business intelligence, machine learning projects.
+A professional portfolio website built with Dash to showcase my skills, projects, certifications, and writing.
 
 ## Features
 - **Multi-Page Layout:** Home, Projects, Writing, About & Contact.
@@ -70,6 +70,7 @@ my_portfolio/
   ├── assets/
   │   ├── styles.css        <-- (Module 6) Custom CSS
   └── README.py             <-- Setup and deployment instructions
+
 
 
 
